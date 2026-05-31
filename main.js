@@ -783,14 +783,14 @@ const heatmapChart = {
                 },
 
                 "color": {
-                    field: "Share",
-                    type: "quantitative",
-                    title: "Population share (%)",
+                    "field": "Share",
+                    "type": "quantitative",
+                    "title": "Population share (%)",
                     "scale": {
                         "range": ["#dbeafe", "#2166ac"]
                     },
                     "legend": {
-                        "title": "Population",
+                        "title": "Share (%)",
                         "orient": "right",
                         "gradientLength": 170,
                         "gradientThickness": 14,
@@ -798,11 +798,11 @@ const heatmapChart = {
                         "titleFontSize": 13
                     }
                 },
-
+                
                 "tooltip": [
-                    {"field": "Region"},
-                    {"field": "AgeGroup", "title": "Age Group"},
-                    {"field": "Population", "format": ","}
+                    {"field": "Region", "title": "Region"},
+                    {"field": "AgeGroup", "title": "Age group"},
+                    {"field": "Share", "title": "Population share (%)", "format": ".0f"}
                 ]
             }
         },
