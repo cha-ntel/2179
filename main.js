@@ -230,7 +230,7 @@ const barChart = {
 
     "width": 420,
     "height": 500,
-    "padding": {"left": 10, "right": 10, "top": 30, "bottom": 20},
+    "padding": {"left": 10, "right": 10, "top": 10, "bottom": 10},
 
     "data": {"url": "Data/migration_clean.csv"},
 
@@ -710,7 +710,7 @@ fetch("Data/population_size.csv")
                     },
 
                     "encoding": {
-                        "x": {"value": 20},
+                        "x": {"value": 40},
                         "y": {"field": "Y", "type": "quantitative"},
                         "text": {"field": "PopulationLabel"}
                     }
@@ -1015,7 +1015,7 @@ const lifestyleChart = {
 
     "width": 420,
     "height": 430,
-    "padding": {"left": 5, "right": 5, "top": 30, "bottom": 20},
+    "padding": {"left": 5, "right": 5, "top": 5, "bottom": 5},
 
     "data": {"url": "Data/lifestyle_clean.csv"},
 
