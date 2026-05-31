@@ -79,7 +79,7 @@ const mapChart = {
 
     "title": {
         "text": "Internal migration gains and losses across Victoria",
-        "subtitle": "Proportional symbol map of selected regions",
+        "subtitle": "Circle size shows migration scale; colour identifies each region",
         "anchor": "start",
         "fontSize": 16,
         "subtitleFontSize": 11
@@ -87,8 +87,8 @@ const mapChart = {
 
     "projection": {
         "type": "mercator",
-        "center": [145.1, -37.7],
-        "scale": 9000
+        "center": [145.2, -37.6],
+        "scale": 8600
     },
 
     "layer": [
@@ -185,43 +185,61 @@ const mapChart = {
         },
         {
             "data": {"url": "Data/map_migration.csv"},
-
+        
             "transform": [
                 {
                     "filter": {
                         "field": "Region",
-                        "oneOf": [
-                            "Melbourne - Inner",
-                            "Melbourne - West",
-                            "Geelong",
-                            "Mornington Peninsula"
-                        ]
+                        "oneOf": CORE_REGIONS
                     }
                 },
                 {
                     "calculate":
                         "datum.Region === 'Melbourne - Inner' ? 'Inner' : " +
                         "datum.Region === 'Melbourne - West' ? 'West' : " +
-                        "datum.Region === 'Mornington Peninsula' ? 'Mornington' : datum.Region",
+                        "datum.Region === 'Mornington Peninsula' ? 'Mornington' : " +
+                        "datum.Region === 'Latrobe - Gippsland' ? 'Latrobe' : datum.Region",
                     "as": "Label"
+                },
+                {
+                    "calculate":
+                        "datum.Region === 'Melbourne - Inner' ? 18 : " +
+                        "datum.Region === 'Melbourne - West' ? -18 : " +
+                        "datum.Region === 'Geelong' ? -20 : " +
+                        "datum.Region === 'Mornington Peninsula' ? 18 : " +
+                        "datum.Region === 'Ballarat' ? 0 : " +
+                        "datum.Region === 'Bendigo' ? 0 : " +
+                        "datum.Region === 'Latrobe - Gippsland' ? 18 : 0",
+                    "as": "LabelDx"
+                },
+                {
+                    "calculate":
+                        "datum.Region === 'Melbourne - Inner' ? 0 : " +
+                        "datum.Region === 'Melbourne - West' ? 0 : " +
+                        "datum.Region === 'Geelong' ? 0 : " +
+                        "datum.Region === 'Mornington Peninsula' ? 0 : " +
+                        "datum.Region === 'Ballarat' ? -20 : " +
+                        "datum.Region === 'Bendigo' ? -20 : " +
+                        "datum.Region === 'Latrobe - Gippsland' ? 0 : 0",
+                    "as": "LabelDy"
                 }
             ],
-
+        
             "mark": {
                 "type": "text",
                 "fontSize": 12,
                 "fontWeight": "700",
                 "fill": "#1e293b"
             },
-
+        
             "encoding": {
                 "longitude": {"field": "Longitude", "type": "quantitative"},
                 "latitude": {"field": "Latitude", "type": "quantitative"},
                 "text": {"field": "Label"},
-                "dx": {"value": 0},
-                "dy": {"value": -22}
+                "dx": {"field": "LabelDx", "type": "quantitative"},
+                "dy": {"field": "LabelDy", "type": "quantitative"}
             }
-        }, 
+        }
     ],
 
     "config": BASE_CONFIG
