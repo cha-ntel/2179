@@ -145,14 +145,18 @@ const mapChart = {
                 "size": {
                     "field": "MigrationSize",
                     "type": "quantitative",
-                    "scale": {"range": [120, 2200]},
+                    "scale": {
+                        "domain": [0, 6000],
+                        "range": [120, 2200]
+                    },
                     "legend": {
                         "title": "Migration size",
                         "orient": "right",
+                        "values": [0, 1000, 2000, 3000, 4000, 5000],
+                        "labelExpr": "format(datum.value, ',')",
                         "symbolType": "circle",
                         "labelFontSize": 12,
-                        "titleFontSize": 13,
-                        "format": ","
+                        "titleFontSize": 13
                     }
                 },
 
@@ -1189,14 +1193,18 @@ const housingChart = {
                 "size": {
                     "field": "MigrationSize",
                     "type": "quantitative",
-                    "range": [500, 2600],
+                    "scale": {
+                        "domain": [0, 6000],
+                        "range": [500, 2600]
+                    },
                     "legend": {
                         "title": "Migration size",
                         "orient": "bottom",
-                        "symbolSize": 130,
+                        "values": [0, 1000, 2000, 3000, 4000, 5000],
+                        "labelExpr": "format(datum.value, ',')",
+                        "symbolType": "circle",
                         "labelFontSize": 11,
-                        "titleFontSize": 12,
-                        "format": ","
+                        "titleFontSize": 12
                     }
                 },
                 "color": {
