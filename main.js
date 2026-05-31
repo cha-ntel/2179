@@ -307,14 +307,11 @@ const barChart = {
                 ]
             }
         },
-        {
-            "mark": {
-                "type": "text",
-                "fontSize": 11,
-                "fontWeight": "700",
-                "stroke": "white",
-                "strokeWidth": 2
-            },
+        "mark": {
+            "type": "text",
+            "fontSize": 11,
+            "fontWeight": "700"
+        },
             "encoding": {
                 "x": {"field": "ShortRegion", "type": "nominal", "sort": "-y"},
                 "y": {"field": "Migration", "type": "quantitative"},
@@ -322,9 +319,9 @@ const barChart = {
                 "dy": {
                     "condition": {
                         "test": "datum.Migration >= 0",
-                        "value": -16
+                        "value": -20
                     },
-                    "value": 22
+                    "value": 28
                 },
                 "color": {
                     "value": "#1e293b"
