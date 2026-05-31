@@ -1168,7 +1168,7 @@ const housingChart = {
 
     "width": 420,
     "height": 390,
-    "padding": {"left": 10, "right": 10, "top": 20, "bottom": 15},
+    "padding": {"left": 10, "right": 10, "top": 10, "bottom": 10},
 
     "data": {"url": "Data/housing_clean.csv"},
 
