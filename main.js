@@ -763,7 +763,7 @@ fetch("Data/population_size.csv")
                     },
 
                     "encoding": {
-                        "x": {"value": 50},
+                        "x": {"value": -50},
                         "y": {"field": "Y", "type": "quantitative"},
                         "text": {"field": "PopulationLabel"}
                     }
